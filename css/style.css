@@ -42,10 +42,16 @@ i{
     transition: 0.5s;
 }
 .product-item:hover .product-img img{
-    transition: scale(1.2);
+    transform: scale(1.2);
 } 
 
+.submit{
+    background: var(--primary_color);
+    color: #fff;
+    background: var(--primary_color);
+   
 
+}
 /* footer */
 footer{
     background: var(--light-color);

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Nav</title>
+    <style>
+       *{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+       }
+       nav{
+        position: fixed;
+        background: blue;
+        height: 100px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        padding: 0 5%;
+        font-family: "Monsterrat", sans-serif;
+       }
+       nav .logo {
+        float: left;
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        color: #fff;
+        }
+        nav .links {
+        float: right;
+        padding: 0;
+        margin: 0;
+        width: 60%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        }
+        nav .links li {
+        list-style: none;
+        }
+        nav .links a {
+        display: block;
+        padding: 1em;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+        /* background: yellow; */
+        }
+        nav .links a:hover {
+        color: crimson;
+        }
+        nav .links a::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 80%;
+            background: #fff;
+            height: 2px;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.5s ease-in;
+        }
+        nav .links a:hover::before{
+            visibility: visible;
+            color: #fff;
+            transform: scaleX(1);
+        }
+        nav #nav-toggle{
+            top: -100px;
+            position: absolute;
+        }
+        nav .hamburger{
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        nav .hamburger .line{
+            width: 30px;
+            height: 5px;
+            background: #fff;
+            margin: 5px;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* media query */
+
+        @media screen and (max-width:768px) {
+            nav .logo{
+                float: none;
+                width: auto;
+                /* justify-content: center; */
+            }
+            nav .links{
+                float: none;
+                position: fixed;
+                z-index: 999;
+                left: -100%;
+                right: 0;
+                top: 100px;
+                bottom: 100%;
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                background: crimson;
+                overflow: hidden;
+                transition: left 0.3s ease-in-out;
+            }
+            nav .links a{
+                font-size: 20px;
+            }
+            nav :checked ~ .links{
+                bottom: 0;
+                left: 0;
+            }
+            nav .hamburger{
+                display: block;
+            }
+            nav :checked ~ .hamburger .line:nth-child(1){
+                transform: translateY(10px) rotate(225deg);
+            }
+            nav :checked ~ .hamburger .line:nth-child(3){
+                transform: translateY(-10px) rotate(-225deg);
+            }
+            nav :checked ~ .hamburger .line:nth-child(2){
+                opacity: 0;
+            }
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+   <nav>
+    <input type="checkbox" id="nav-toggle">
+    <div class="logo"><strong>Linar</strong>Tech</div>
+    <ul class="links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Category</a></li>
+        <li><a href="#prject">Gallery</a></li>
+        <li><a href="#Contact">Contact</a></li>
+     </ul>
+    <label for="nav-toggle" class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+   </nav>
+</body>
+</html>
