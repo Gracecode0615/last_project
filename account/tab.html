@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Tabs Example</title>
+  <link rel="stylesheet" href="style1.css">
+  <!-- <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 500px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  background-color: #333;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background: #444;
+}
+
+.tab:hover, .tab.active {
+  background-color: #555;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+  </style> -->
+</head>
+<body>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab" onclick="openTab(event, 'tab1')">Home</button>
+    <button class="tab" onclick="openTab(event, 'tab2')">Blog</button>
+    <button class="tab" onclick="openTab(event, 'tab3')">Profile</button>
+    <button class="tab" onclick="openTab(event, 'tab4')"> Discusions</button>
+  </div>
+
+  <div class="tab-content">
+    <div id="tab1" class="content active">
+      <h2>Home</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae assumenda sequi officia tempora accusantium, doloremque nam cum omnis laborum illum ipsum dolores soluta quod corrupti, dolor ipsa magni saepe voluptatem.</p>
+    </div>
+    <div id="tab2" class="content">
+      <h2>Blog</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sit dolores minus explicabo! Aliquam tempore excepturi veritatis numquam perspiciatis ipsa quibusdam ipsum earum ipsam! Beatae labore excepturi veritatis magni vero.</p>
+    </div>
+    <div id="tab3" class="content">
+      <h2>Profile</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, et voluptatem. Repellat natus provident hic aspernatur, esse soluta incidunt rerum, cum eos explicabo ipsam cupiditate nisi ipsum iste! Perferendis, vitae.</p>
+    </div>
+    <div id="tab4" class="content ">
+      <h2>Discusions</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus excepturi, dolorem necessitatibus sequi alias, perspiciatis iste magnam soluta quis officiis, vitae quod cupiditate nobis molestias laboriosam. Laudantium modi non quisquam?.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function openTab(event, tabId) {
+  // Hide all tab content
+  const contents = document.querySelectorAll('.content');
+  contents.forEach(content => content.classList.remove('active'));
+
+  // Deactivate all tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => tab.classList.remove('active'));
+
+  // Show the selected tab content
+  document.getElementById(tabId).classList.add('active');
+  
+  // Activate the clicked tab
+  event.currentTarget.classList.add('active');
+}
+
+</script>
+</body>
+</html>
